@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _islower - Check Holberton 
  * @c: An input character
