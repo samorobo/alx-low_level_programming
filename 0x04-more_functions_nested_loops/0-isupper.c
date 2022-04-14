@@ -3,7 +3,7 @@
  * Auth: Brennan D Baraban
  */
 
- #include "main.h"
+#include "main.h"
 
 /**
  * _isupper - Checks for uppercase characters.
@@ -14,8 +14,8 @@
 int _isupper(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return (10);
-	
+		return (1);
+
 	else
-		return(0);
+		return (0);
 }
