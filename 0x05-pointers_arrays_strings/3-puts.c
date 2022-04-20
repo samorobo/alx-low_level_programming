@@ -11,7 +11,7 @@ void _puts(char *str)
 
 	int f;
 
-	for (str = 0; str[f]; f++)
+	for (f = 0; str[f]; f++)
 	{
 		_putchar(str[f]);
 	}
