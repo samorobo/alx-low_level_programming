@@ -7,7 +7,7 @@
  * Return: string s that matches any character specified in accept
  */
 
-char *_strpbrk(cjhar *s, char *accept)
+char *_strpbrk(char *s, char *accept)
 {
 	unsigned int i, j;
 
