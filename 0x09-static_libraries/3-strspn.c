@@ -1,7 +1,4 @@
-
-   
 #include "main.h"
-
 /**
  * _strspn - Locates a character in a string
  * @s: This is the main C string to be scanned.
