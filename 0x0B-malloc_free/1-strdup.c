@@ -1,26 +1,29 @@
-#include "main.h"                                                                                                                               
-#include <stdlib.h>                                                                                                                             
-                                                                                                                                                
-/**                                                                                                                                             
- *  * _strdup - duplicates and points to a newly allocated spaces in a memory                                                                      
- *   * @str: string to be duplicated                                                                                                                
- *    * Return: pointer of the newly duplicated string                                                                                               
- */                                                                                                                                
-                                                                                                                                                
-char *_strdup(char *str)                                                                                                                        
-{                                                                                                                                               
-	        unsigned int k, l;                                                                                                                      
-		        char dup;
+#include "main.h"
+#include <stdlib.h>
+/**
+ * _strdup - returns a pointer to a newly allocated space in memory.
+ * @str: string.
+ *
+ * Return: pointer of an array of chars
+ */
+char *_strdup(char *str)
+{
+	char *strout;
+	unsigned int i, j;
 
+	if (str == NULL)
+		return (NULL);
 
-			        if (str == NULL)                                                                                                                        
-					                return (NULL);                                                                                                                  
-				        for (k = 0; str[k] != '\0'; k++)                                                                                                        
-						                ;                                                                                                                               
-					        dup = (char *)malloc(sizeof(char) * k + 1);                                                                                             
-						        if (dup == NULL)                                                                                                                        
-								                return (NULL);                                                                                                                  
-							        for (l = 0; l <= k; l++)                                                                                                                
-									                dup[l] = str[l];                                                                                                                
-								        return (dup);                                                                                                                           
-}                     
+	for (i = 0; str[i] != '\0'; i++)
+		;
+
+	strout = (char *)malloc(sizeof(char) * (i + 1));
+
+	if (strout == NULL)
+		return (NULL);
+
+	for (j = 0; j <= i; j++)
+		strout[j] = str[j];
+
+	return (strout);
+}
