@@ -1,24 +1,23 @@
 #include "main.h"
 
 /**
- * _isalpha - Return 1 if c is a letter. lowercase or uppercase
- *
- *@c: The int to print
- * Return: Always 0.
+ * _strpbrk - searches a string for any of a set of bytes.
+ * @s: first string.
+ * @accept: second string.
+ * Return: a pointer to the byte in s that matches one of the
+ * bytes in accept, or NULL if no such byte is found.
  */
-
-int _isalpha(int c)
-
+char *_strpbrk(char *s, char *accept)
 {
+	unsigned int i, j;
 
-if ((c > 'a' && c < 'z') || (c > 'A' && c < 'Z'))
-{
-return (1);
-}
-
-else
-{
-return (0);
-}
-
+	for (i = 0; *(s + i) != '\0'; i++)
+	{
+		for (j = 0; *(accept + j) != '\0'; j++)
+		{
+			if (*(s + i) == *(accept + j))
+				return (s + i);
+		}
+	}
+	return ('\0');
 }
