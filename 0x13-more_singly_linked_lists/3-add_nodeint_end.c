@@ -2,7 +2,7 @@
 
 /**
  * add_nodeint_end - add a new node at the end of a listint_t list
- * @h: head of single list
+ * @head: head of single list
  * @n: element to insert in the new node
  * Return: address of new element
  */
@@ -10,7 +10,7 @@
 listint_t *add_nodeint_end(listint_t **head, const int n)
 {
 	listint_t *new;
-	listint_t *tem;
+	listint_t *temp;
 
 	new = malloc(sizeof(listint_t));
 
@@ -19,7 +19,7 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 
 	new->n = n;
 	new->next = NULL;
-	tem = *head;
+	temp = *head;
 
 	if (*head == NULL)
 	{
@@ -27,11 +27,11 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	}
 	else
 	{
-		while (tem->next != NULL)
+		while (temp->next != NULL)
 		{
-			tem = tem->next;
+			temp = temp->next;
 		}
-		tem->next = new;
+		temp->next = new;
 	}
 
 	return (*head);
