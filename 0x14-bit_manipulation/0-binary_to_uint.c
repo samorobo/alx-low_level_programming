@@ -11,10 +11,10 @@ unsigned int binary_to_unit(const char *b)
 	int k;
 	unsigned int conv = 0;
 
-	if (b == NULL)
+	if (!b)
 		return (0);
 
-	for (k = 0; b[k] != '\0'; k++)
+	for (k = 0; b[k]; k++)
 	{
 		if (b[k] < '0' || b[k] > '1')
 			return (0);
