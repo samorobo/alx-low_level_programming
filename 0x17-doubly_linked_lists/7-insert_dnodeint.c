@@ -1,60 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
 
 /**
- * insert_dnodeint_at_index - insert element at given index
- * @h:node
- * @idx:index
- * @n:element value
- * Return: NULL or New element
- */
+* *insert_dnodeint_at_index - that inserts a new node at a given position
+* @h: variable pointer
+* @idx: index
+* @n: value
+* Return: the address of the new node, or NULL if it failed
+*/
+
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	unsigned int c = 0;
-	dlistint_t *start, *new;
-	unsigned int len = len_node(h);
+	unsigned int x = 0;
+	dlistint_t *i, *currentNode, *sigNode;
+	dlistint_t *newNode;
 
-	if (idx == 0)
-		return (add_dnodeint(h, n));
-	start = *h;
-	while (start)
+	newNode = malloc(sizeof(*newNode));
+	if (newNode == NULL)
 	{
-		if (c == idx - 1)
-			break;
-		else if (c < idx - 1 && start == NULL)
+		free(newNode);
 		return (NULL);
-		start = start->next;
-		c++;
 	}
-		new = malloc(sizeof(dlistint_t));
-		if (new == NULL)
-			return (NULL);
-	if (len == idx)
-		return (add_dnodeint_end(h, n));
-	else if (len < idx)
-		return (NULL);
-	start->next->prev = new;
-	new->next = start->next;
-	start->next = new;
-	new->prev = start;
-	new->n = n;
-	return (new);
-}
-/**
- * len_node - list len
- *
- * @node:list
- * Return:unsigned int
- */
-unsigned int len_node(dlistint_t **node)
-{
-	unsigned int len = 0;
-	dlistint_t *start;
+	newNode->next = NULL;
+	newNode->prev = NULL;
+	newNode->n = n;
 
-	start = *node;
-	while (start != NULL)
+	for (i = *h; i != NULL; i = i->next)
 	{
-		len += 1;
-		start = start->next;
+		if (x == idx)
+		{
+			currentNode = i->prev;
+			sigNode = currentNode->next;
+			currentNode->next = newNode;
+			newNode->prev = currentNode;
+			newNode->next = sigNode;
+			sigNode->prev = newNode;
+			return (newNode);
+		}
+		x++;
 	}
-	return (len);
+	return (NULL);
 }
